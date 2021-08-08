@@ -23,7 +23,6 @@
     "url": "https://github.com/jquery/jquery/issues"
   },
   "license": "MIT",
-  "dependencies": {},
   "devDependencies": {
     "commitplease": "2.0.0",
     "core-js": "0.9.17",
