@@ -32,6 +32,8 @@ define( [
 	"./exports/amd"
 ], function( jQuery ) {
 
+	
+// 设置全局的jQuery变量
 return ( window.jQuery = window.$ = jQuery );
 
 } );

@@ -16,6 +16,11 @@ var
 	version = "@VERSION",
 
 	// Define a local copy of jQuery
+	// 可以见得 jQuery 其实就是一个函数（类似于工厂）
+	// 返回结果其实就是 jQuery.fn.init
+
+
+	// 这个init 依赖了许多 jQuery 中的定义
 	jQuery = function( selector, context ) {
 
 		// The jQuery object is actually just the init constructor 'enhanced'
@@ -36,11 +41,14 @@ var
 		return letter.toUpperCase();
 	};
 
+// 对工厂 设置了一个别名 
 jQuery.fn = jQuery.prototype = {
 
 	// The current version of jQuery being used
 	jquery: version,
 
+	// 这里 constructor 的 作用是什么呢
+	// 貌似是多此一举？
 	constructor: jQuery,
 
 	// Start with an empty selector
@@ -82,6 +90,7 @@ jQuery.fn = jQuery.prototype = {
 
 	// Execute a callback for every element in the matched set.
 	each: function( callback ) {
+		// 题外 到时候可以看一下这个each的函数， 和当前函数不同的是，这个函数有两个参数
 		return jQuery.each( this, callback );
 	},
 
@@ -120,8 +129,12 @@ jQuery.fn = jQuery.prototype = {
 	splice: deletedIds.splice
 };
 
+// jQuery.extend == jQuery.fn.extend == jQuery.prototype.extend
+
 jQuery.extend = jQuery.fn.extend = function() {
 	var src, copyIsArray, copy, name, options, clone,
+
+		// 获取参数, 这里好像有点懒= =
 		target = arguments[ 0 ] || {},
 		i = 1,
 		length = arguments.length,
@@ -188,7 +201,7 @@ jQuery.extend = jQuery.fn.extend = function() {
 	// Return the modified object
 	return target;
 };
-
+// 加载扩展模块 应该是
 jQuery.extend( {
 
 	// Unique for each copy of jQuery on the page
@@ -498,6 +511,8 @@ jQuery.extend( {
 // three lines.
 /* jshint ignore: start */
 if ( typeof Symbol === "function" ) {
+
+	// 这里直接可以设置一些函数? js有点bug 
 	jQuery.fn[ Symbol.iterator ] = deletedIds[ Symbol.iterator ];
 }
 /* jshint ignore: end */

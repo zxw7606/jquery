@@ -14,6 +14,7 @@ var rootjQuery,
 	// Strict HTML recognition (#11290: must start with <)
 	rquickExpr = /^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]*))$/,
 
+	// 可见也是一个函数
 	init = jQuery.fn.init = function( selector, context, root ) {
 		var match, elem;
 
@@ -127,11 +128,12 @@ var rootjQuery,
 		}
 
 		return jQuery.makeArray( selector, this );
-	};
+	}; // end
 
 // Give the init function the jQuery prototype for later instantiation
 init.prototype = jQuery.fn;
 
+// 可以看出 rootjQuery 也是一个 init, 只是参数一个document
 // Initialize central reference
 rootjQuery = jQuery( document );
 
