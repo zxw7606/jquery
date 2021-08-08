@@ -52,6 +52,7 @@ jQuery.filter = function( expr, elems, not ) {
 };
 
 jQuery.fn.extend( {
+	// 查找
 	find: function( selector ) {
 		var i,
 			ret = [],

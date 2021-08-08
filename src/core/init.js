@@ -83,6 +83,7 @@ var rootjQuery,
 						// Handle the case where IE and Opera return items
 						// by name instead of ID
 						if ( elem.id !== match[ 2 ] ) {
+							// 调用Jquery的 find 方法
 							return rootjQuery.find( selector );
 						}
 
