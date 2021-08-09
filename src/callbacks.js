@@ -108,6 +108,7 @@ jQuery.Callbacks = function( options ) {
 			}
 		},
 
+		// todo 回调事件的CRUD
 		// Actual Callbacks object
 		self = {
 
